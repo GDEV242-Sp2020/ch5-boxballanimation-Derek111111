@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.geom.*;
+import java.util.Random;
 
 /**
  * Class BoxBall - a graphical ball that observes the effect of gravity. The ball
@@ -57,6 +58,14 @@ public class BoxBall
         rightWall = rightWallPos;
         leftWall = leftWallPos;
         canvas = drawingCanvas;
+        Random rand = new Random();
+        do{
+            xSpeed = rand.nextInt(14) - 7;
+        }while(xSpeed == 0);
+        
+        do{
+            ySpeed = rand.nextInt(14) - 7;
+        }while(ySpeed == 0);
     }
 
     /**
