@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.util.ArrayList;
 
 /**
  * Class BallDemo - a short demonstration showing animation with the 
@@ -52,5 +53,30 @@ public class BallDemo
                 finished = true;
             }
         }
+    }
+    
+    public void boxBounce()
+    {
+        //dimensions of the box
+        int topWall = 0;
+        int bottomWall = 400;
+        int rightWall = 450;
+        int leftWall = 50;
+        int[] horizontalDimentions = {topWall, bottomWall};
+        int[] verticalDimentions = {rightWall, leftWall};
+        
+        myCanvas.setVisible(true);
+        
+        //draw the box
+        for(int dimention: horizontalDimentions)
+        {
+            myCanvas.drawLine(leftWall, dimention,rightWall, dimention);
+        }
+        
+        for(int dimention: verticalDimentions)
+        {
+            myCanvas.drawLine(dimention, bottomWall,dimention, topWall);
+        }
+        
     }
 }
