@@ -19,6 +19,4 @@ comment5.text=\r\n\ return\ the\ horizontal\ position\ of\ this\ ball\r\n
 comment6.params=
 comment6.target=int\ getYPosition()
 comment6.text=\r\n\ return\ the\ vertical\ position\ of\ this\ ball\r\n
-comment7.params=max\ position\ diameter
-comment7.target=boolean\ isOutsideRange(int,\ int,\ int)
-numComments=8
+numComments=7

@@ -32,7 +32,7 @@ public class BoxBall
     private final int rightWall;
     private Canvas canvas;
     private int ySpeed = 1;
-    private int xSpeed = 3;// initial downward speed
+    private int xSpeed = 4;// initial downward speed
 
     /**
      * Constructor for objects of class BoxBall
@@ -88,17 +88,20 @@ public class BoxBall
         ySpeed += GRAVITY;
         yPosition += ySpeed;
         xPosition += xSpeed;
-        boolean isUnderBottom = isOutsideRange(groundPosition,
-                                        yPosition, diameter);
-        boolean isOutOfRight = isOutsideRange(rightWall,
-                                        xPosition, diameter);
-        // check if it has hit the ground or roof
-        if(isUnderBottom  && ySpeed > 0) {
+        // check if it has hit any walls
+        if((yPosition >= (groundPosition - diameter))  && ySpeed != 0) {
             yPosition = (int)(groundPosition - diameter);
             ySpeed = -ySpeed + ballDegradation; 
             
-        }else if (isOutOfRight && xSpeed > 0){
+        }else if ((yPosition <= (roofPosition))  && ySpeed != 0) {
+            yPosition = (int)(roofPosition + diameter);
+            ySpeed = -ySpeed - ballDegradation; 
+        }
+        if ((xPosition >= (rightWall - diameter)) && xSpeed != 0){
             xPosition = (int)(rightWall - diameter);
+            xSpeed = -xSpeed;
+        }else if ((xPosition <= (leftWall)) && xSpeed != 0){
+            xPosition = (int)(leftWall + diameter);
             xSpeed = -xSpeed;
         }
 
@@ -120,12 +123,5 @@ public class BoxBall
     public int getYPosition()
     {
         return yPosition;
-    }
-    
-    private boolean isOutsideRange(int max, 
-                            int position,int diameter)
-    {
-        System.out.println(position + " : " + max);
-       return (position >= (max - diameter));
     }
 }

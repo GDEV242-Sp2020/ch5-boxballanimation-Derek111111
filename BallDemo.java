@@ -82,7 +82,7 @@ public class BallDemo
             myCanvas.drawLine(dimention, bottomWall,dimention, topWall);
         }
         
-        BoxBall ball = new BoxBall(50, 50, 16, Color.BLUE, bottomWall,
+        BoxBall ball = new BoxBall(70, 200, 16, Color.BLUE, bottomWall,
                                 topWall,rightWall,leftWall, myCanvas);
         ball.draw();
         
