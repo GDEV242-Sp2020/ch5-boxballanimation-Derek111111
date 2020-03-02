@@ -12,6 +12,7 @@ comment3.target=void\ erase()
 comment3.text=\r\n\ Erase\ this\ ball\ at\ its\ current\ position.\r\n
 comment4.params=
 comment4.target=boolean\ isStopped()
+comment4.text=\r\n\ \ Return\ whether\ the\ ball\ is\ stopped\ or\ not,\ if\ it\ has\ no\r\n\ \ speed\ on\ either\ axis\ it\ will\ be\ considered\ stopped.\r\n
 comment5.params=
 comment5.target=void\ move()
 comment5.text=\r\n\ Move\ this\ ball\ according\ to\ its\ position\ and\ speed\ and\ redraw.\r\n

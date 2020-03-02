@@ -85,6 +85,10 @@ public class BoxBall
         canvas.eraseCircle(xPosition, yPosition, diameter);
     }  
     
+    /**
+     *  Return whether the ball is stopped or not, if it has no
+     *  speed on either axis it will be considered stopped.
+     */
     public boolean isStopped()
     {
         return ySpeed == 0 && xSpeed == 0;
@@ -102,7 +106,7 @@ public class BoxBall
         ySpeed += GRAVITY;
         yPosition += ySpeed;
         xPosition += xSpeed;
-        // check if it has hit any walls
+        // check if it has hits ground or roof
         if((yPosition >= (groundPosition - diameter))  && ySpeed != 0) {
             yPosition = (int)(groundPosition - diameter);
             ySpeed = -ySpeed + ballDegradation; 
@@ -111,6 +115,7 @@ public class BoxBall
             yPosition = (int)(roofPosition + 2);
             ySpeed = -ySpeed - ballDegradation; 
         }
+        //check if it hits right or left wall
         if ((xPosition >= (rightWall - diameter)) && xSpeed != 0){
             xPosition = (int)(rightWall - diameter);
             xSpeed = -xSpeed + ballDegradation;

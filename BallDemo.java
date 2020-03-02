@@ -56,8 +56,9 @@ public class BallDemo
     }
     
     /**
-     * boxBounce method creates a box and a random number of balls that
-     * will bounce inside that box
+     * boxBounce method creates a box and a 25 balls that
+     * will bounce inside that box, each ball has a random color and random start
+     * position
      */
     public void boxBounce()
     {
@@ -66,6 +67,7 @@ public class BallDemo
         int bottomWall = 400;
         int rightWall = 450;
         int leftWall = 50;
+        //lists
         int[] horizontalDimentions = {topWall, bottomWall};
         int[] verticalDimentions = {rightWall, leftWall};
         ArrayList<BoxBall> ballCollection = new ArrayList<>();
@@ -75,7 +77,7 @@ public class BallDemo
         
 
         
-        
+        //make the 25 balls
         for(int i = 0; i < 25; i++){
             int randDiameter = rand.nextInt(20) + 5;
             int randomX = rand.nextInt
@@ -94,7 +96,7 @@ public class BallDemo
         
         
 
-        
+        //draw all the balls
         for(BoxBall ball: ballCollection){
                 ball.draw();
         }
@@ -108,18 +110,21 @@ public class BallDemo
         {
             myCanvas.drawLine(dimention, bottomWall,dimention, topWall);
         }
-                // make them bounce
+         // make them bounce
         boolean finished =  false;
         boolean allStopped;
         while(!finished) {
             myCanvas.wait(50);           // small delay
             allStopped = true;
+            //render each ball in the collection every tick
             for(BoxBall ball: ballCollection){
                 ball.move();
+                //checking ball forces
                 if(!ball.isStopped()){
                     allStopped = false;
                 }
             }
+            //end loop if all balls have no force
             if(allStopped){
                 finished = true;
             }   
