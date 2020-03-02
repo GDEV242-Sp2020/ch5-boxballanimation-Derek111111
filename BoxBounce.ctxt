@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=BoxBounce
+comment0.text=\r\n\ Class\ BoxBounce\ -\ showing\ animation\ of\ many\ balls\ bouncing\ within\ a\ box\r\n\ as\ well\ as\ bouncing\ off\ the\ walls\ of\ the\ box.\r\n\r\n\ @author\ Bill\ Crosbie\r\n\ @version\ 2015-March-BB\r\n\r\n\ @author\ Michael\ K\u00F6lling\ and\ David\ J.\ Barnes\r\n\ @version\ 2011.07.31\r\n
+comment1.params=
+comment1.target=BoxBounce()
+comment1.text=\r\n\ Create\ a\ BoxBounce\ object.\ Creates\ a\ fresh\ canvas\ and\ makes\ it\ visible.\r\n
+comment2.params=
+comment2.target=void\ boxBounce()
+comment2.text=\r\n\ boxBounce\ method\ creates\ a\ box\ and\ a\ 25\ balls\ that\r\n\ will\ bounce\ inside\ that\ box,\ each\ ball\ has\ a\ random\ color\ and\ random\ start\r\n\ position\r\n
+numComments=3
