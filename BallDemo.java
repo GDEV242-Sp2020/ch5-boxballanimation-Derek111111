@@ -89,8 +89,12 @@ public class BallDemo
             int randomX = rand.nextInt(401) + 50;
             int randomY = rand.nextInt(401);
             int randDiameter = rand.nextInt(20) + 5;
+            int randR = rand.nextInt(256);
+            int randG = rand.nextInt(256);
+            int randB = rand.nextInt(256);
+            Color randomColor = new Color(randR,randG,randB);
             ballCollection.add(new BoxBall(randomX, randomY,randDiameter,
-                                            Color.BLUE, bottomWall,
+                                            randomColor, bottomWall,
                                             topWall,rightWall,leftWall,
                                             myCanvas));
         }
@@ -102,15 +106,19 @@ public class BallDemo
         
                 // make them bounce
         boolean finished =  false;
+        boolean allStopped;
         while(!finished) {
             myCanvas.wait(50);           // small delay
+            allStopped = true;
             for(BoxBall ball: ballCollection){
                 ball.move();
-                if(ball.getXPosition() >= 550 || ball.getYPosition() >= 400) {
-                    finished = true;
+                if(!ball.isStopped()){
+                    allStopped = false;
                 }
             }
-                
+            if(allStopped){
+                finished = true;
+            }   
 
         }
         

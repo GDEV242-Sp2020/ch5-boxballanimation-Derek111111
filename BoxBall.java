@@ -115,7 +115,7 @@ public class BoxBall
             xPosition = (int)(rightWall - diameter);
             xSpeed = -xSpeed + ballDegradation;
         }else if ((xPosition <= (leftWall)) && xSpeed != 0){
-            xPosition = (int)(leftWall + diameter);
+            xPosition = (int)(leftWall);
             xSpeed = -xSpeed - ballDegradation;
         }
 
