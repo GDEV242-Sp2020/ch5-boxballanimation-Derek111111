@@ -9,5 +9,5 @@ comment2.target=void\ bounce()
 comment2.text=\r\n\ Simulate\ two\ bouncing\ balls\r\n
 comment3.params=
 comment3.target=void\ boxBounce()
-comment3.text=\r\n\ boxBounce\ method\ creates\ a\ box\ and\ a\ random\ number\ of\ balls\ that\r\n\ will\ bounce\ inside\ that\ box\r\n
+comment3.text=\r\n\ boxBounce\ method\ creates\ a\ box\ and\ a\ 25\ balls\ that\r\n\ will\ bounce\ inside\ that\ box,\ each\ ball\ has\ a\ random\ color\ and\ random\ start\r\n\ position\r\n
 numComments=4
