@@ -20,7 +20,7 @@ public class BoxBall
 {
     private static final int GRAVITY = 3;  // effect of gravity
 
-    private int ballDegradation = 2;
+    private int ballDegradation = 1;
     private Ellipse2D.Double circle;
     private Color color;
     private int diameter;
@@ -31,7 +31,8 @@ public class BoxBall
     private final int leftWall;
     private final int rightWall;
     private Canvas canvas;
-    private int ySpeed = 1;                // initial downward speed
+    private int ySpeed = 1;
+    private int xSpeed = 3;// initial downward speed
 
     /**
      * Constructor for objects of class BoxBall
@@ -86,14 +87,19 @@ public class BoxBall
         // compute new position
         ySpeed += GRAVITY;
         yPosition += ySpeed;
-        xPosition +=2;
-        boolean isInBoundsY = isBetweenRange(groundPosition, roofPosition,
+        xPosition += xSpeed;
+        boolean isUnderBottom = isOutsideRange(groundPosition,
                                         yPosition, diameter);
+        boolean isOutOfRight = isOutsideRange(rightWall,
+                                        xPosition, diameter);
         // check if it has hit the ground or roof
-        if(isInBoundsY  && ySpeed > 0) {
+        if(isUnderBottom  && ySpeed > 0) {
             yPosition = (int)(groundPosition - diameter);
             ySpeed = -ySpeed + ballDegradation; 
             
+        }else if (isOutOfRight && xSpeed > 0){
+            xPosition = (int)(rightWall - diameter);
+            xSpeed = -xSpeed;
         }
 
         // draw again at new position
@@ -116,9 +122,10 @@ public class BoxBall
         return yPosition;
     }
     
-    private boolean isBetweenRange(int min, int max, 
+    private boolean isOutsideRange(int max, 
                             int position,int diameter)
     {
-       return (position >= (min - diameter)) && (position <= (max + diameter));
+        System.out.println(position + " : " + max);
+       return (position >= (max - diameter));
     }
 }

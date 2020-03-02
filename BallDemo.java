@@ -86,5 +86,16 @@ public class BallDemo
                                 topWall,rightWall,leftWall, myCanvas);
         ball.draw();
         
+                // make them bounce
+        boolean finished =  false;
+        while(!finished) {
+            myCanvas.wait(50);           // small delay
+            ball.move();
+            // stop once ball has travelled a certain distance on x axis
+            if(ball.getXPosition() >= 550 || ball.getYPosition() >= 400) {
+                finished = true;
+            }
+        }
+        
     }
 }
