@@ -83,7 +83,12 @@ public class BoxBall
     public void erase()
     {
         canvas.eraseCircle(xPosition, yPosition, diameter);
-    }    
+    }  
+    
+    public boolean isStopped()
+    {
+        return ySpeed == 0 && xSpeed == 0;
+    }
 
     /**
      * Move this ball according to its position and speed and redraw.
@@ -108,10 +113,10 @@ public class BoxBall
         }
         if ((xPosition >= (rightWall - diameter)) && xSpeed != 0){
             xPosition = (int)(rightWall - diameter);
-            xSpeed = -xSpeed;
+            xSpeed = -xSpeed + ballDegradation;
         }else if ((xPosition <= (leftWall)) && xSpeed != 0){
             xPosition = (int)(leftWall + diameter);
-            xSpeed = -xSpeed;
+            xSpeed = -xSpeed - ballDegradation;
         }
 
         // draw again at new position

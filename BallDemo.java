@@ -1,6 +1,6 @@
 import java.awt.Color;
 import java.util.ArrayList;
-
+import java.util.Random;
 /**
  * Class BallDemo - a short demonstration showing animation with the 
  * Canvas class. 
@@ -68,6 +68,8 @@ public class BallDemo
         int leftWall = 50;
         int[] horizontalDimentions = {topWall, bottomWall};
         int[] verticalDimentions = {rightWall, leftWall};
+        ArrayList<BoxBall> ballCollection = new ArrayList<>();
+        Random rand = new Random();
         
         myCanvas.setVisible(true);
         
@@ -82,19 +84,34 @@ public class BallDemo
             myCanvas.drawLine(dimention, bottomWall,dimention, topWall);
         }
         
-        BoxBall ball = new BoxBall(70, 200, 16, Color.BLUE, bottomWall,
-                                topWall,rightWall,leftWall, myCanvas);
-        ball.draw();
+        
+        for(int i = 0; i < 25; i++){
+            int randomX = rand.nextInt(401) + 50;
+            int randomY = rand.nextInt(401);
+            int randDiameter = rand.nextInt(20) + 5;
+            ballCollection.add(new BoxBall(randomX, randomY,randDiameter,
+                                            Color.BLUE, bottomWall,
+                                            topWall,rightWall,leftWall,
+                                            myCanvas));
+        }
+
+        
+        for(BoxBall ball: ballCollection){
+                ball.draw();
+        }
         
                 // make them bounce
         boolean finished =  false;
         while(!finished) {
             myCanvas.wait(50);           // small delay
-            ball.move();
-            // stop once ball has travelled a certain distance on x axis
-            if(ball.getXPosition() >= 550 || ball.getYPosition() >= 400) {
-                finished = true;
+            for(BoxBall ball: ballCollection){
+                ball.move();
+                if(ball.getXPosition() >= 550 || ball.getYPosition() >= 400) {
+                    finished = true;
+                }
             }
+                
+
         }
         
     }
