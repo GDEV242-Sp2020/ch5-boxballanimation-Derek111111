@@ -73,7 +73,32 @@ public class BallDemo
         
         myCanvas.setVisible(true);
         
-        //draw the box
+
+        
+        
+        for(int i = 0; i < 25; i++){
+            int randDiameter = rand.nextInt(20) + 5;
+            int randomX = rand.nextInt
+                                (rightWall - 50 - randDiameter) + (50);
+            int randomY = rand.nextInt
+                                (bottomWall - randDiameter);
+            int randR = rand.nextInt(200);
+            int randG = rand.nextInt(200);
+            int randB = rand.nextInt(200);
+            Color randomColor = new Color(randR,randG,randB);
+            ballCollection.add(new BoxBall(randomX, randomY,randDiameter,
+                                            randomColor, bottomWall,
+                                            topWall,rightWall,leftWall,
+                                            myCanvas));
+        }
+        
+        
+
+        
+        for(BoxBall ball: ballCollection){
+                ball.draw();
+        }
+                //draw the box
         for(int dimention: horizontalDimentions)
         {
             myCanvas.drawLine(leftWall, dimention,rightWall, dimention);
@@ -83,27 +108,6 @@ public class BallDemo
         {
             myCanvas.drawLine(dimention, bottomWall,dimention, topWall);
         }
-        
-        
-        for(int i = 0; i < 25; i++){
-            int randomX = rand.nextInt(401) + 50;
-            int randomY = rand.nextInt(401);
-            int randDiameter = rand.nextInt(20) + 5;
-            int randR = rand.nextInt(256);
-            int randG = rand.nextInt(256);
-            int randB = rand.nextInt(256);
-            Color randomColor = new Color(randR,randG,randB);
-            ballCollection.add(new BoxBall(randomX, randomY,randDiameter,
-                                            randomColor, bottomWall,
-                                            topWall,rightWall,leftWall,
-                                            myCanvas));
-        }
-
-        
-        for(BoxBall ball: ballCollection){
-                ball.draw();
-        }
-        
                 // make them bounce
         boolean finished =  false;
         boolean allStopped;

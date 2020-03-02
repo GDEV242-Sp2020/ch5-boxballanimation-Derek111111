@@ -107,15 +107,15 @@ public class BoxBall
             yPosition = (int)(groundPosition - diameter);
             ySpeed = -ySpeed + ballDegradation; 
             
-        }else if ((yPosition <= (roofPosition))  && ySpeed != 0) {
-            yPosition = (int)(roofPosition + diameter);
+        }else if ((yPosition <= (roofPosition + 2))  && ySpeed != 0) {
+            yPosition = (int)(roofPosition + 2);
             ySpeed = -ySpeed - ballDegradation; 
         }
         if ((xPosition >= (rightWall - diameter)) && xSpeed != 0){
             xPosition = (int)(rightWall - diameter);
             xSpeed = -xSpeed + ballDegradation;
-        }else if ((xPosition <= (leftWall)) && xSpeed != 0){
-            xPosition = (int)(leftWall);
+        }else if ((xPosition <= (leftWall + 2)) && xSpeed != 0){
+            xPosition = (int)(leftWall + 2);
             xSpeed = -xSpeed - ballDegradation;
         }
 
