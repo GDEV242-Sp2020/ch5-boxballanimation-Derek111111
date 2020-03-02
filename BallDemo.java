@@ -55,6 +55,10 @@ public class BallDemo
         }
     }
     
+    /**
+     * boxBounce method creates a box and a random number of balls that
+     * will bounce inside that box
+     */
     public void boxBounce()
     {
         //dimensions of the box
@@ -77,6 +81,10 @@ public class BallDemo
         {
             myCanvas.drawLine(dimention, bottomWall,dimention, topWall);
         }
+        
+        BoxBall ball = new BoxBall(50, 50, 16, Color.BLUE, bottomWall,
+                                topWall,rightWall,leftWall, myCanvas);
+        ball.draw();
         
     }
 }
